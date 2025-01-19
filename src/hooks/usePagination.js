@@ -4,11 +4,13 @@ import _ceil from "lodash/ceil";
 import _min from "lodash/min";
 import _slice from "lodash/slice";
 
+import { getTotalNumberOfPages } from "../helpers/index";
+
 const usePagination = ({ data = [] }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [recordsPerPage, setRecordsPerPage] = useState(5);
 
-  const totalPages = _ceil(data.length / recordsPerPage);
+  const totalPages = getTotalNumberOfPages(data.length, recordsPerPage);
 
   const dataOnCurrentPage = _slice(
     data,
@@ -31,8 +33,8 @@ const usePagination = ({ data = [] }) => {
 
   const handleUpdateRecordsPerPage = (updatedPage) => {
     setRecordsPerPage(updatedPage);
-    if (currentPage > _ceil(data.length / updatedPage) - 1)
-      setCurrentPage(_ceil(data.length / updatedPage) - 1);
+    if (currentPage > getTotalNumberOfPages(data.length, updatedPage) - 1)
+      setCurrentPage(getTotalNumberOfPages(data.length, updatedPage) - 1);
   };
 
   return [

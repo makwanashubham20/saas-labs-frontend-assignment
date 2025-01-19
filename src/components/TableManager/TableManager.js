@@ -1,36 +1,40 @@
 import { React } from "react";
 
+import _isEmpty from "lodash/isEmpty";
 import _map from "lodash/map";
 
 import "./tableManager.css";
 
 const TableManager = ({ columnConfig = [], data = [], dataKey = "key" }) => (
-  <table>
-    <tr>
-      {_map(columnConfig, (column) => {
-        const { width, Header, key } = column || {};
+  <>
+    <table>
+      <tr>
+        {_map(columnConfig, (column) => {
+          const { width, Header, key } = column || {};
+          return (
+            <th key={`header-${key}`} style={{ width }}>
+              {Header}
+            </th>
+          );
+        })}
+      </tr>
+      {_map(data, (columnData = {}) => {
         return (
-          <th key={`header-${key}`} style={{ width }}>
-            {Header}
-          </th>
+          <tr key={columnData[dataKey]}>
+            {_map(columnConfig, (column, index) => {
+              const { width, key } = column || {};
+              return (
+                <td key={`data--${index}-${key}`} style={{ width }}>
+                  {columnData[key]}
+                </td>
+              );
+            })}
+          </tr>
         );
       })}
-    </tr>
-    {_map(data, (columnData = {}) => {
-      return (
-        <tr key={columnData[dataKey]}>
-          {_map(columnConfig, (column, index) => {
-            const { width, key } = column || {};
-            return (
-              <td key={`data--${index}-${key}`} style={{ width }}>
-                {columnData[key]}
-              </td>
-            );
-          })}
-        </tr>
-      );
-    })}
-  </table>
+    </table>
+    {_isEmpty(data) && <div className="noRecords">No Records to show</div>}
+  </>
 );
 
 export default TableManager;
