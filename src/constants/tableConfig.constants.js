@@ -1,0 +1,44 @@
+export const COLUMNS = {
+  SERIAL_NO: "serialNumber",
+  PERCENTAGE_FUNDED: "percentageFunded",
+  AMOUNT_PLEDGE: "amountPledge",
+};
+
+export const COLUMN_KEYS = {
+  [COLUMNS.SERIAL_NO]: "s.no",
+  [COLUMNS.PERCENTAGE_FUNDED]: "percentage.funded",
+  [COLUMNS.AMOUNT_PLEDGE]: "amt.pledged",
+};
+
+export const COLUMN_HEADERS = {
+  [COLUMNS.SERIAL_NO]: "S.No.",
+  [COLUMNS.PERCENTAGE_FUNDED]: "Percentage Funded",
+  [COLUMNS.AMOUNT_PLEDGE]: "Amount Pledge",
+};
+
+export const COLUMN_WIDTHS = {
+  [COLUMNS.SERIAL_NO]: "200px",
+  [COLUMNS.PERCENTAGE_FUNDED]: "400px",
+  [COLUMNS.AMOUNT_PLEDGE]: "400px",
+};
+
+export const TABLE_COLUMN_CONFIG = [
+  {
+    id: COLUMNS.SERIAL_NO,
+    key: COLUMN_KEYS[COLUMNS.SERIAL_NO],
+    Header: COLUMN_HEADERS[COLUMNS.SERIAL_NO],
+    width: COLUMN_WIDTHS[COLUMNS.SERIAL_NO],
+  },
+  {
+    id: COLUMNS.PERCENTAGE_FUNDED,
+    key: COLUMN_KEYS[COLUMNS.PERCENTAGE_FUNDED],
+    Header: COLUMN_HEADERS[COLUMNS.PERCENTAGE_FUNDED],
+    width: COLUMN_WIDTHS[COLUMNS.SERIAL_NO],
+  },
+  {
+    id: COLUMNS.AMOUNT_PLEDGE,
+    key: COLUMN_KEYS[COLUMNS.AMOUNT_PLEDGE],
+    Header: COLUMN_HEADERS[COLUMNS.AMOUNT_PLEDGE],
+    width: COLUMN_WIDTHS[COLUMNS.SERIAL_NO],
+  },
+];

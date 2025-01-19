@@ -1,0 +1,28 @@
+.navBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 8px;
+    margin-top: 16px;
+    height: 24px;
+}
+
+.selectedButton {
+    background-color: antiquewhite;
+}
+
+.seperator {
+    margin: 0 16px;
+    width: 1px;
+    height: 100%;
+    background-color: black;
+}
+
+.numberOfRecordsSelection {
+    margin-right: 16px;
+    height: 100%;
+}
+
+.numberOfRecords {
+    height: 100%;
+}

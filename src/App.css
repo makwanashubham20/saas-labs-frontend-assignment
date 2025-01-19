@@ -1,0 +1,9 @@
+.App {
+  padding: 8px
+}
+
+.AppBody {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
